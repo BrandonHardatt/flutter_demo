@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart'
-    show BuildContext, MaterialApp, StatelessWidget, Widget;
+import 'package:flutter/material.dart';
 import 'welcome.dart';
 
 class App extends StatelessWidget {
