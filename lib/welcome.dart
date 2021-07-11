@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {
@@ -7,7 +9,7 @@ class Welcome extends StatelessWidget {
         appBar: AppBar(
             title: Text('Appointment Booking', style: TextStyle(fontSize: 24)),
             centerTitle: true,
-            backgroundColor: Colors.orangeAccent.shade700,
+            backgroundColor: Colors.deepOrangeAccent.shade700,
             actions: <Widget>[
               IconButton(
                   color: Colors.blue,
@@ -20,10 +22,29 @@ class Welcome extends StatelessWidget {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  InkWell(
-                      child: Text("Book a new Appointment",
-                          style: TextStyle(fontSize: 24)),
-                      onTap: () => debugPrint("New Appointment booked."))
+                  CustomButton(),
+//                  InkWell(
+//                      child: Text("Book a new Appointment",
+//                          style: TextStyle(fontSize: 24)),
+//                      onTap: () => debugPrint("New Appointment booked."))
                 ])));
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          final snackBar = SnackBar(content: Text("Hello Again!"));
+          Scaffold.of(context).showSnackBar(snackBar);
+        }, //onTap
+
+        child: Container(
+            padding: EdgeInsets.all(10.0),
+            decoration: BoxDecoration(
+                color: Colors.pink.shade900,
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Text("Button")));
   }
 }
